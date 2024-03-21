@@ -62,3 +62,54 @@ bindName("Netherland"); // John Doe lives in England and Netherland
 //---------------------------------------------------------------------------------------------------------------------------------------
 //                                                              Filter
 //---------------------------------------------------------------------------------------------------------------------------------------
+
+Array.prototype.myFilter = function (callback) {
+  let arr = [];
+
+  for (let i = 0; i < this.length; i++) {
+    if (callback(this[i], i, this)) {
+      arr.push(this[i]);
+    }
+  }
+
+  return arr;
+};
+
+let dataFilter = [1, 2, 3, 4];
+console.log(dataFilter.myFilter((item) => item > 2)); // [3 , 4]
+
+//---------------------------------------------------------------------------------------------------------------------------------------
+//                                                              Map
+//---------------------------------------------------------------------------------------------------------------------------------------
+
+Array.prototype.myMap = function (callback) {
+  let arr = [];
+
+  for (let i = 0; i < this.length; i++) {
+    arr.push(callback(this[i], i, this));
+  }
+
+  return arr;
+};
+
+let dataMap = [1, 2, 3, 4];
+console.log(dataMap.myMap((item) => item > 2)); // [ false, false, true, true ]
+
+//---------------------------------------------------------------------------------------------------------------------------------------
+//                                                              Reduce
+//---------------------------------------------------------------------------------------------------------------------------------------
+
+Array.prototype.myReduce = function (callback, initialvalue = 0) {
+  let accumulator = initialvalue;
+
+  for (let i = 0; i < this.length; i++) {
+    accumulator = callback(accumulator, this[i], i, this);
+  }
+
+  return accumulator;
+};
+
+let dataReduce = [1, 2, 3, 4];
+console.log(
+  dataReduce.myReduce((prevValue, curValue) => prevValue + curValue, 0)
+); // 10
