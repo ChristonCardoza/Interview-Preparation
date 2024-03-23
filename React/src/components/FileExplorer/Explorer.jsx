@@ -3,6 +3,8 @@ import { useState } from "react";
 import explorer from "./data/folderData.js";
 import Folder from "./Folder.jsx";
 
+import "./style.css";
+
 import useTraverseTree from "./hooks/use-traverse-tree";
 
 const Explorer = () => {

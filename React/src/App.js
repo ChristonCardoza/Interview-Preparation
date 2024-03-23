@@ -10,6 +10,9 @@ import { Thubnail } from "./components/Thumbnail";
 import { Pagination } from "./components/Pagination";
 import { Progress } from "./components/ProgressBar";
 import { Bread } from "./components/Breadcrumbs";
+import { PasswordGenerator } from "./components/PasswordGenerator";
+import { GridLights } from "./components/GridLights";
+import { Theme } from "./components/Theme";
 
 export default function App() {
   return (
@@ -25,7 +28,10 @@ export default function App() {
       {/* <Thubnail /> */}
       {/* <Pagination /> */}
       {/* <Progress /> */}
-      <Bread />
+      {/* <Bread /> */}
+      {/* <PasswordGenerator /> */}
+      {/* <GridLights /> */}
+      <Theme />
     </div>
   );
 }

@@ -33,8 +33,12 @@ const Folder = ({ explorer, handleInsertNode }) => {
           <span>🗂️ {explorer.name}</span>
 
           <div>
-            <button onClick={(e) => handleNewFolder(e, true)}>Folder +</button>
-            <button onClick={(e) => handleNewFolder(e, false)}>File + </button>
+            <button onClick={(e) => handleNewFolder(e, true)} className="btn">
+              Folder +
+            </button>
+            <button onClick={(e) => handleNewFolder(e, false)} className="btn">
+              File +{" "}
+            </button>
           </div>
         </div>
 
