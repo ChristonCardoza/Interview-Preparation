@@ -4,11 +4,16 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
     "immer": "9.0.15",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "workerpool": "^9.1.0"
   },
   "scripts": {
-    "start": "nodemon src/streams/server.js"
+    "stream": "nodemon src/streams/server.js",
+    "worker": "nodemon src/worker-thread/index.js",
+    "cluster": "nodemon src/cluster/app.js"
   },
   "devDependencies": {
     "@types/node": "^17.0.21"
