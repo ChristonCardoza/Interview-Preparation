@@ -13,6 +13,7 @@ import { Bread } from "./components/Breadcrumbs";
 import { PasswordGenerator } from "./components/PasswordGenerator";
 import { GridLights } from "./components/GridLights";
 import { Theme } from "./components/Theme";
+import { Timer } from "./components/CountDownTimer";
 
 export default function App() {
   return (
@@ -31,7 +32,8 @@ export default function App() {
       {/* <Bread /> */}
       {/* <PasswordGenerator /> */}
       {/* <GridLights /> */}
-      <Theme />
+      {/* <Theme /> */}
+      <Timer />
     </div>
   );
 }

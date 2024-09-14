@@ -1,0 +1,53 @@
+.container {
+    background-color: white;
+    width: 700px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.timer_lables,
+.timer_values,
+.timer_buttons {
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 100%;
+    text-align: center;
+}
+
+.timer_buttons > button {
+
+    width: 40%;
+    height: 30px;
+    text-align: center;
+    border: none;
+}
+
+.timer_values > input {
+
+    text-align: center;
+    border: none;
+}
+
+.timer_lables > p {
+    text-align: center;
+}
+
+.timer_button-start {
+    background-color: green;
+}
+
+.timer_button-reset {
+    background-color: yellow;
+    
+}
+
+.timer_button-stop {
+    background-color: red;
+}
