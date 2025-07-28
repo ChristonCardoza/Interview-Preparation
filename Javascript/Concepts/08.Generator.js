@@ -1,3 +1,5 @@
+// A generator in JavaScript is a special type of function that allows you to pause and resume execution, and it's a convenient way to create iterators.
+
 function* numbersGenerator(start) {
   let i = start;
 

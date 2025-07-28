@@ -149,3 +149,121 @@ async function test() {
 }
 
 // test();
+
+// // function register(cb){
+// //   // wait(3000)
+// //   setTimeout(() => {
+// //     console.log("register")
+// //     cb()
+// //   }, 2000)
+
+// // }
+
+// // function sendEmail(cb){
+// //   setTimeout(() => {
+// //      console.log("sendEmail")
+// //     cb()
+// //   }, 1000)
+
+// // }
+
+// // function login(cb){
+// //   setTimeout(() => {
+// //     console.log("login")
+// //     cb()
+// //   }, 1000)
+
+// // }
+
+// // function getUserData(cb){
+// //   setTimeout(() => {
+// //     console.log("getUserData")
+// //     cb()
+// //   }, 1000)
+
+// // }
+
+// // function displayUserData(){
+// //   setTimeout(() => {
+// //     console.log("displayUserData")
+// //   }, 1000)
+
+// // }
+
+// // register(function() {
+// //   sendEmail(function(){
+// //     login (function() {
+// //         getUserData(function(){
+// //           displayUserData()
+// //       })
+// //     })
+// //   })
+// // })
+
+// function register(){
+
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       console.log("register")
+//       resolve()
+//     }, 2000)
+//   })
+// }
+
+// function sendEmail(){
+
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       console.log("sendEmail")
+//       resolve()
+//     }, 1000)
+//   })
+// }
+
+// function login(cb){
+
+//   return new Promise  ((resolve, reject) => {
+//     setTimeout(() => {
+//       console.log("login")
+//       resolve()
+//     }, 1000)
+//   })
+
+// }
+
+// function getUserData(cb){
+
+//   return new Promise ((resolve, reject) => {
+//     setTimeout(() => {
+//       console.log("getUserData")
+//       resolve()
+//     }, 1000)
+//   })
+
+// }
+
+// function displayUserData(){
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       console.log("displayUserData")
+//       resolve()
+//     }, 1000)
+//   })
+
+// }
+
+// // register()
+// //   .then(sendEmail)
+// //   .then(login)
+// //   .then(getUserData)
+// //   .then(displayUserData)
+
+// async function job(){
+//   await register()
+//   await sendEmail()
+//   await login()
+//   await getUserData()
+//   await displayUserData()
+// }
+
+// job().then(() => console.log("done"))

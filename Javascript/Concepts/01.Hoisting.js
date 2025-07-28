@@ -1,71 +1,162 @@
-// -------------------------------------------------------- VAR --------------------------------------------------------
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
-var v1 = "v1";
-console.log(v1); // v1
+// ------------------------------- Var Hoisting -------------------------------
+async function varDemo() {
+  await sleep(1000)
+  console.log(' ------------------------------- Var Hoisting -------------------------------')
+  var name = "John";
+  console.log(name);
+  var name = "Doe";
+  console.log(name)
+  var name = {
+    firstName: "John",
+    lastName: "Doe"
+  }
+  console.log(name)
 
-var v2;
-console.log(v2); // undefined
-v2 = "v2";
+  name = 'xyz'
+  console.log(name)
 
-var v3;
-v3 = "v3";
-console.log(v3); // v3
+//console.log(this.name) // window object
 
-console.log(v4); // undefined
-var v4 = "v4";
+  console.log(sample) // undefined
+  var sample;
+  sample = 10;
+  console.log(sample)
 
-var v5 = [1, 2, 3, 5];
-var v5 = { a: 3 };
-console.log(v5); // { a: 3 }
+  var firstName = "pokkade"
+  var secondName = "surname"
+  var thirdName = 'thirdName'
 
-// var v6 = "v6"
-// console.log(v7) // v7 is not defined
+  function sampleFunction(firstName) {
+    console.log("Inside Function 'firstName': ",firstName) // NewName
+    var firstName = "John"
+    console.log("Inside Function 'firstName': ",firstName) // John
+    console.log("Inside Function 'name': ",name) // xyz
+    console.log("Inside Function 'secondName': ",secondName) // surname
+    secondName = "newSurname"
+    console.log("Inside Function 'secondName': ",secondName) // newSurname
+    console.log("Inside Function 'thirdName': ",thirdName) // undefined
+    var thirdName = 'thirdNameInsideFunction'
+    console.log("Inside Function 'thirdName': ",thirdName) // thirdNameInsideFunction
+  }
+  sampleFunction("NewNmae")
+  console.log(firstName) // pokkade
+  console.log(secondName) // newSurname
+  console.log(thirdName) // thirdName
 
-var v7 = "v7";
-v7 = "v8";
-console.log(v7); // v8
-v7 = "v9";
+  {
+    console.log("Inside Block 'firstName': ",firstName) // pokkade
+    var firstName = "John"
+    console.log("Inside Block 'firstName': ",firstName) // John
+    console.log("Inside Block 'name': ",name) // xyz
+    console.log("Inside Block 'secondName': ",secondName) // newSurname
+    secondName = "anothernewSurname"
+    console.log("Inside Block 'secondName': ",secondName) // anothernewSurname
+    console.log("Inside Block 'thirdName': ",thirdName) // thirdName
+    var thirdName = 'thirdNameInsideFunction'
+    console.log("Inside Block 'thirdName': ",thirdName) // thirdNameInsideFunction
+  }
+  console.log(firstName) // John
+  console.log(secondName) // anothernewSurname
+  console.log(thirdName) // thirdNameInsideFunction
 
-// -------------------------------------------------------- LET --------------------------------------------------------
+  for(var i = 0; i < 5; i++) {
+    setTimeout(() => {
+      console.log(i)
+    })
+  } // 5 5 5 5 5
 
-let l1 = "l1";
-console.log(l1); // li
+}
+varDemo()
+// ------------------------------- Let Hoisting -------------------------------
+async function letDemo() {
+  await sleep(2000)
+  console.log(' ------------------------------- Let Hoisting -------------------------------')
+  let letName = "John";
+  console.log(letName);
 
-let l2;
-console.log(l2); // undefined
-l2 = "l2";
+  letName = {
+    firstName: "John",
+    lastName: "Doe"
+  }
+  console.log(letName)
 
-let l3;
-l3 = "l3";
-console.log(l3); // l3
+  let l2;
+  console.log(l2); // undefined
+  l2 = "l2";
 
-// console.log(l4); // Cannot access l4 before initialization
-// let l4 = "l4";
+  let letScope = 'xyz'
+  {
+    let letNewScope = 'abc'
+    console.log("Inside Block 'letNewScope': ",letNewScope) // abc
+    console.log("Inside Block 'letScope': ",letScope) // xyz
+    letScope = 'scopeChangedInBlock'
+    console.log("Inside Block 'letScope': ",letScope) // scopeChangedInBlock
+  }
+  console.log(letScope) // scopeChangedInBlock
+  // console.log(letNewScope) // ReferenceError: letNewScope is not defined
 
-// let l5 = [1, 2, 3, 5];
-// console.log(l5); // [1, 2, 3, 5]
-// let l5 = { a: 3 }; // Identifier 'l5' has already been declared
+  function getLetScope() {
+    console.log("Inside Function 'letScope': ",letScope)
+    letScope = 'FunctionChangedScope'
+    console.log("Inside Function 'letScope': ",letScope)
+    let letFunctionScope = 'abc'
+    console.log("Inside Function 'letFunctionScope': ",letFunctionScope) // abc
+  }
 
-let l6 = "l6";
-l6 = "l7";
-console.log(l6); // l7
-l6 = "l8";
+  getLetScope()
 
-// -------------------------------------------------------- CONST --------------------------------------------------------
+  console.log(letScope) // xyz
 
-const c1 = "c1";
-console.log(c1); // c1
+  // console.log(letSample) // ReferenceError: Cannot access 'letSample' before initialization
+  // let letSample = 10;
 
-// const c2; // Unexpected token
-// console.log(c2);
-// c2 = "c2";
+  for(let i = 0; i < 5; i++) {
+    setTimeout(() => {
+      console.log(i)
+    })
+  }
+}
 
-// console.log(c3); // Cannot access c3 before initialization
-// const c3 = "c3";
+letDemo()
 
-// const c4 = [1, 2, 3, 5];
-// console.log(c4); // [1, 2, 3, 5]
-// const c4 = { a: 3 }; // Identifier 'c4' has already been declared
+// ------------------------------- Const Hoisting -------------------------------
+async function constDemo() {
+  await sleep(3000)
+  console.log(' ------------------------------- Const Hoisting -------------------------------')
 
-const c5 = "c5";
-c5 = "c6"; // Assignment to constant variable
+  const constName = "John";
+  console.log(constName); // John
+  const newConstName = "Doe";
+
+  // constName = {
+  //   firstName: "John",
+  //   lastName: "Doe"
+  // }
+  // console.log(constName) // TypeError: Assignment to constant variable.
+
+  const constScope = 'xyz'
+  {
+    const constNewScope = 'abc'
+    console.log("Inside Block 'letNewScope': ",constNewScope) // abc
+    console.log("Inside Block 'letScope': ",constScope) // xyz
+    // const constScope = 'scopeChangedInBlock' // cannot access before initialization
+    console.log("Inside Block 'letScope': ",constScope) // scopeChangedInBlock
+    const newConstName = "newConstNameInsideBlock";
+    console.log(newConstName) // newConstNameInsideBlock
+  }
+  console.log(constScope) // scopeChangedInBlock
+
+  // for(const i = 0; i < 5; i++) {
+  //   setTimeout(() => {
+  //     console.log(i)
+  //   })
+  // }
+
+
+}
+
+constDemo()
